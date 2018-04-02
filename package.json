@@ -1,0 +1,19 @@
+{
+  "name": "ico-launcher",
+  "version": "0.0.0",
+  "description": "a simple erc20 token-based ico launcher",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambhav2612/ico-launcher.git"
+  },
+  "author": "Sambhav Jain",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sambhav2612/ico-launcher/issues"
+  },
+  "homepage": "https://github.com/sambhav2612/ico-launcher#readme"
+}
