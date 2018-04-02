@@ -4,7 +4,8 @@
   "description": "a simple erc20 token-based ico launcher",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "micro"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/sambhav2612/ico-launcher#readme",
   "dependencies": {
-    "puppeteer": "^1.2.0"
+    "puppeteer": "^1.2.0",
+    "micro": "^9.1.4"
   }
 }
