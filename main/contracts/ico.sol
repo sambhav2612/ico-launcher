@@ -3,8 +3,7 @@ pragma solidity ^0.4.16;
 contract SafeMath {
      function safeMul(uint a, uint b) internal returns (uint) {
           uint c = a * b;
-          assert(a == 0 || c 
-          / a == b);
+          assert(a == 0 || c / a == b);
           return c;
      }
 
@@ -116,11 +115,11 @@ contract StdToken is Token {
      }
 }
 
-contract EthLendToken is StdToken
+contract BlockchainDevsToken is StdToken
 {
 /// Fields:
-    string public constant name = "EthLend Token";
-    string public constant symbol = "LEND";
+    string public constant name = "BlockchainDevs Token";
+    string public constant symbol = "BDT";
     uint public constant decimals = 18;
 
     // this includes DEVELOPERS_BONUS

@@ -1,1 +1,0 @@
-module.exports = () => 'THIS WILL BE REDIRECTED IN FUTURE TO MAIN FRONT-END!';
