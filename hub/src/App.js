@@ -2,9 +2,26 @@ import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Message, Segment, Checkbox } from 'semantic-ui-react'
 import './App.css';
 
+class ShakingError extends React.Component {
+	constructor() { 
+    super(); 
+    this.state = { key: 0 }; 
+  }
+
+	componentWillReceiveProps() {
+    // update key to remount the component to rerun the animation
+  	this.setState({ key: ++this.state.key });
+  }
+  
+  render() {
+  	return <div key={this.state.key} className="bounce">{this.props.text}</div>;
+  }
+}
+
 class App extends Component {
   constructor() {
     super();
+    this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -12,6 +29,20 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    if (!event.target.checkValidity()) {
+      this.setState({ 
+        invalid: true, 
+        displayErrors: true 
+      });
+      return;
+    }
+    
+    this.setState({ 
+      invalid: false,
+      displayErrors: false 
+    });
+
     const data = new FormData(event.target);
 
     // make token symbol uppercase
@@ -23,13 +54,8 @@ class App extends Component {
     });
   }
 
-  handleClick = () => 
-    this.setState({
-      active: !this.state.active
-    });
-
   render() {
-    const { active } = this.state;
+    const { invalid, displayErrors } = this.state;
 
     return (
       <div className='token-form'>
@@ -49,8 +75,9 @@ class App extends Component {
               Create your own ICO Token based on ERC20 Standard
             </Header>
             <Form
-              noValidate='true' 
-              onSubmit={this.handleSubmit}>
+              noValidate 
+              onSubmit={this.handleSubmit}
+              className={displayErrors ? 'displayErrors' : ''}>
               <Segment stacked>
                 <Form.Field fluid='true'>
                   <label htmlFor='ethAddress'></label>
@@ -90,7 +117,6 @@ class App extends Component {
                 </Form.Field>
                 <Button.Group 
                   toggle
-                  active={active}
                   size='large' 
                   buttons={['Presale', 'Offering', 'ICO']}
                 />
@@ -99,7 +125,7 @@ class App extends Component {
                 <Checkbox htmlFor='checkbox' label='Do you wish to proceed?' />
                 <br />
                 <br />
-                <Button primary fluid size='large'>Submit</Button>
+                <Button primary fluid size='large' type='submit'>Submit</Button>
               </Segment>
             </Form>
             <Message>&copy; Brought to you by 
@@ -109,6 +135,11 @@ class App extends Component {
                 rel='noopener noreferrer'
                 >{' '}BlockchainDevs</a>
             </Message>
+            <div className="res-block">
+              {invalid && (
+                <ShakingError text="Form is not valid" />
+              )}
+            </div>
           </Grid.Column>
         </Grid>
       </div>
