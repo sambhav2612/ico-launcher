@@ -14,3 +14,7 @@ $ cd hub && npm install && npm run start
 # open a new cmd and type following to serve the production code in case you want to see
 $ cd hub && npm run build
 ```
+
+### License
+
+GPL-v3.0
