@@ -3,10 +3,25 @@ import { Button, Form, Grid, Header, Message, Segment, Checkbox } from 'semantic
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   state = {}
 
-  handleSubmit = () => {}
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    // make token symbol uppercase
+    data.set('tokenSymbol', data.get('tokenSymbol').toUpperCase());
+    
+    fetch('/api/form-submit-url', {
+      method: 'POST',
+      body: data,
+    });
+  }
 
   handleClick = () => 
     this.setState({
@@ -33,38 +48,60 @@ class App extends Component {
             <Header as='h2' color='teal' textAlign='center'>
               Create your own ICO Token based on ERC20 Standard
             </Header>
-            <Form onSubmit={this._onSubmit}>
+            <Form
+              noValidate='true' 
+              onSubmit={this.handleSubmit}>
               <Segment stacked>
                 <Form.Field fluid='true'>
-                  <input placeholder='Enter your ETH Address' />
+                  <label htmlFor='ethAddress'></label>
+                  <input required name='ethAddress' placeholder='Enter your ETH Address' />
                 </Form.Field>
                 <Form.Field fluid='true'>
-                  <input placeholder='Enter quantity of tokens required eg. 1000000' />
+                  <label htmlFor='tokenQuantity'></label>
+                  <input 
+                    required
+                    pattern='\d+' 
+                    name='tokenQuantity' 
+                    placeholder='Enter quantity of tokens required eg. 1000000' />
                 </Form.Field>
                 <Form.Field fluid='true'>
-                  <input placeholder='Enter your token name eg. Nakamoto' />
+                  <label htmlFor='tokenName'></label>
+                  <input 
+                    required 
+                    name='tokenName'
+                    type='text' 
+                    placeholder='Enter your token name eg. Nakamoto' />
                 </Form.Field>
                 <Form.Field fluid='true'>
-                  <input placeholder='Enter your token symbol eg. NKM' />
+                  <label htmlFor='tokenSymbol'></label>
+                  <input 
+                    required 
+                    name='tokenSymbol'
+                    type='text' 
+                    placeholder='Enter your token symbol eg. NKM' />
                 </Form.Field>
                 <Form.Field fluid='true'>
-                  <input placeholder='Enter number of decimal places eg. 4' />
+                  <label htmlFor='decimals'></label>
+                  <input 
+                    required
+                    pattern='\d+'
+                    name='decimals' 
+                    placeholder='Enter number of decimal places eg. 4' />
                 </Form.Field>
                 <Button.Group 
                   toggle
+                  active={active}
                   size='large' 
                   buttons={['Presale', 'Offering', 'ICO']}
                 />
+                <br />
+                <br />
+                <Checkbox htmlFor='checkbox' label='Do you wish to proceed?' />
+                <br />
+                <br />
+                <Button primary fluid size='large'>Submit</Button>
               </Segment>
             </Form>
-            <br />
-            <Checkbox label='Do you wish to proceed?' />
-            <br />
-            <br />
-            <Button primary fluid size='large'>Submit</Button>
-            <br />
-            <br />
-            <br />
             <Message>&copy; Brought to you by 
               <a 
                 href="https://github.com/BlockchainDevs/" 
