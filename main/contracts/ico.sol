@@ -136,7 +136,7 @@ contract BlockchainDevsToken is StdToken
     uint public constant ICO_PRICE3 = 25000;     // per 1 Ether
 
     // 1bln - this includes presale tokens
-    uint public constant TOTAL_SOLD_TOKEN_SUPPLY_LIMIT = 1000000000* (1 ether / 1 wei);
+    uint public constant TOTAL_SOLD_TOKEN_SUPPLY_LIMIT = 1000000000 * (1 ether / 1 wei);
 
     enum State{
        Init,
@@ -185,7 +185,7 @@ contract BlockchainDevsToken is StdToken
 /// Functions:
     /// @dev Constructor
     /// @param _tokenManager Token manager address.
-    function EthLendToken(address _tokenManager, address _escrow, address _teamTokenBonus) 
+    function BlockchainDevsToken(address _tokenManager, address _escrow, address _teamTokenBonus) 
     {
         tokenManager = _tokenManager;
         teamTokenBonus = _teamTokenBonus;

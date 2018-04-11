@@ -16,10 +16,5 @@
   "bugs": {
     "url": "https://github.com/sambhav2612/ico-launcher/issues"
   },
-  "homepage": "https://github.com/sambhav2612/ico-launcher#readme",
-  "dependencies": {
-    "intern": "^4.1.5",
-    "micro": "^9.1.4",
-    "puppeteer": "^1.2.0"
-  }
+  "homepage": "https://github.com/sambhav2612/ico-launcher"
 }
