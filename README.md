@@ -2,6 +2,12 @@
 
 This is a simple ERC20 token-based ICO Launching web app using Truffle Framework for backend and React for frontend.
 
+## Requirements
+
+- Node
+- Any Node Package Manager
+- Truffle Framework installed globally
+
 ## Steps to install
 
 ```bash
