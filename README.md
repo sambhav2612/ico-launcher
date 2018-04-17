@@ -21,6 +21,20 @@ $ cd hub && npm install && npm run start
 $ cd hub && npm run build
 ```
 
+## Cloning Guide
+
+```bash
+# to keep up the latest revisions here in your local clone
+$ git remote add upstream https://github.com/BlockchainDevs/ico-launcher.git
+
+# verify if remote was added successfully 
+$ git remote -v
+
+# update at anytime!
+$ git pull upstream master
+
+```
+
 ### License
 
 GPL-v3.0
