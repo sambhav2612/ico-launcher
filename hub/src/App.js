@@ -75,20 +75,25 @@ class App extends Component {
               Create your own ICO Token based on ERC20 Standard
             </Header>
             <Form
-              noValidate 
+              noValidate='true' 
               onSubmit={this.handleSubmit}
               className={displayErrors ? 'displayErrors' : ''}>
               <Segment stacked>
                 <Form.Field fluid='true'>
                   <label htmlFor='ethAddress'></label>
-                  <input required name='ethAddress' placeholder='Enter your ETH Address' />
+                  <input 
+                    required 
+                    name='ethAddress'
+                    id='ethAddress' 
+                    placeholder='Enter your ETH Address' />
                 </Form.Field>
                 <Form.Field fluid='true'>
                   <label htmlFor='tokenQuantity'></label>
                   <input 
                     required
                     pattern='\d+' 
-                    name='tokenQuantity' 
+                    name='tokenQuantity'
+                    id='tokenQuantity' 
                     placeholder='Enter quantity of tokens required eg. 1000000' />
                 </Form.Field>
                 <Form.Field fluid='true'>
@@ -96,6 +101,7 @@ class App extends Component {
                   <input 
                     required 
                     name='tokenName'
+                    id='tokenName'
                     type='text' 
                     placeholder='Enter your token name eg. Nakamoto' />
                 </Form.Field>
@@ -104,6 +110,7 @@ class App extends Component {
                   <input 
                     required 
                     name='tokenSymbol'
+                    id='tokenSymbol'
                     type='text' 
                     placeholder='Enter your token symbol eg. NKM' />
                 </Form.Field>
@@ -112,7 +119,8 @@ class App extends Component {
                   <input 
                     required
                     pattern='\d+'
-                    name='decimals' 
+                    name='decimals'
+                    id='decimals' 
                     placeholder='Enter number of decimal places eg. 4' />
                 </Form.Field>
                 <Button.Group 
