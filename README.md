@@ -6,7 +6,10 @@ This is a simple ERC20 token-based ICO Launching web app using Truffle Framework
 
 - Node
 - Any Node Package Manager
+<<<<<<< HEAD
 - web3
+=======
+>>>>>>> 67304790376b37dc12398a3be47d15399c51f803
 - Truffle Framework installed globally
 
 ## Steps to install
